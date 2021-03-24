@@ -30,7 +30,7 @@ app.post("/receive_webhook", function (request, response) {
   let videoId = body.videoId;
   let encoding = body.encoding;
   let quality = body.quality;
-  let webhookResponse = "event: " +type+ " at: "+ emittedAt+ " videoId: "+videoId+ "  " + encoding+quality;
+  let webhookResponse = "event: " +type+ " at: "+ emittedAt+ " videoId: "+videoId+ "  <br/>Encoding: " + encoding+" Video quality: "+ quality;
   //console.log(headers);
   console.log("response",webhookResponse);
   //webhook url
