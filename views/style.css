@@ -1,0 +1,39 @@
+/* styles */
+/* called by your view template */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: helvetica, arial, sans-serif;
+    margin: 25px;
+  }
+  
+  h1 {
+    font-weight: bold;
+    color: pink;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  p {
+    max-width: 600px;
+  }
+  
+  footer {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid lightgrey;
+  }
+  
+  footer > a {
+    color: #BBBBBB;
+  }
+  
+  .nicejob {
+    text-decoration: line-through;
+  }
+  
