@@ -6,6 +6,7 @@ $(function() {
       $.get('/get_webhooks', function(webhooks) {
         var content="";
         if(webhooks.length!==0){
+          console.log("number of results", webhooks.length);
           webhooks.forEach(function(webhook) {
             content+='<li>' + webhook + '</li>';
           });
