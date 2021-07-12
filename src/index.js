@@ -27,10 +27,32 @@ app.post("/receive_webhook", function (request, response) {
   console.log("headers",headers);
   let type = body.type;
   let emittedAt = body.emittedAt;
+  let webhookResponse="";
+  let liveStreamId = "";
+  let liveStreamStatus = false;
+  if (type =="video.encoding.quality.completed"){
+    let videoId = body.videoId;
+    let encoding = body.encoding;
+    let quality = body.quality;
+    liveStreamId = body.liveStreamId;
+    webhookResponse = "event: " +type+ " at: "+ emittedAt+ " videoId: "+videoId+ "  <br/>Encoding: " + encoding+" Video quality: "+ quality;
+    
+  } else if(type =="live-stream.broadcast.started"){
+      liveStreamId = body.liveStreamId;
+      liveStreamStatus = true;
+      webhookResponse = "event: " +type+ " at: "+ emittedAt+ " LiveStream,Id: "+liveStreamId+ "  has started.";
+    
+
+  } else if (type =="live-stream.broadcast.ended"){
+      liveStreamId = body.liveStreamId;
+      liveStreamStatus = false;
+      webhookResponse = "event: " +type+ " at: "+ emittedAt+ " LiveStream,Id: "+liveStreamId+ "  has stopped.";
+
+  }
+
   let videoId = body.videoId;
   let encoding = body.encoding;
   let quality = body.quality;
-  let webhookResponse = "event: " +type+ " at: "+ emittedAt+ " videoId: "+videoId+ "  <br/>Encoding: " + encoding+" Video quality: "+ quality;
   //console.log(headers);
   console.log("response",webhookResponse);
   //webhook url
