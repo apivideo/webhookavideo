@@ -70,6 +70,6 @@ app.get("/get_webhooks", function (request, response) {
 });
 
 // listen for requests :)
-var listener = app.listen(3040, function () {
+var listener = app.listen(process.env.PORT || 3040, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
